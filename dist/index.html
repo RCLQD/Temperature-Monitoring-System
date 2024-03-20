@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script defer src="table.js"></script>
+    <script defer src="openmodal.js"></script>
     <title>Document</title>
 </head>
 <body class="bg-[#181818] font-poppins">
@@ -18,35 +19,70 @@
             </svg>                
             <h1 class="text-[#b2ff45] text-2xl font-semibold">Temperature Monitoring System</h1>
         </div>
-        <a class="flex items-center gap-x-1">
+        <a class="flex items-center gap-x-1" onclick="openModal()">
             <h1 class="text-[#b2ff45] text-[23px] font-medium cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-105 hover:text-white">Configure</h1>
             <svg class="text-[#b2ff45] dark:text-white cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 hover:text-white" width="35" height="35" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="1.8" d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4"/>
             </svg> 
         </a>
     </header>
+    <dialog id="modal" class="w-[50%] h-[70%] p-2 bg-black rounded-lg modal outline-none box-shadow animate-appear">
+        <div class="w-full flex place-content-end">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="cursor-pointer transform transition-all duration-300 ease-in-out active:scale-75" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="closeBTN" onclick="document.getElementById('modal').close();">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="w-full h-[15%] flex justify-center items-center">
+            <h1 class="text-[#b2ff45] text-5xl font-semibold"><span class="text-white">Alerts</span> Configuration</h1>
+        </div>
+        <div class="w-full h-[65%] flex pb-[50px]">
+            <div class="w-[50%] h-[full] grid place-items-center">
+                <h1 class="text-[#b2ff45] text-[42px] font-medium">Temperature</h1>
+                <p class="text-[#6e0a1e] text-5xl font-medium">0°C</p>
+                <div class="w-[60%] h-[42%] flex justify-between">
+                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">-</button>
+                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">+</button>
+                </div>
+            </div>
+            <div class="w-[50%] h-[full] grid place-items-center">
+                <h1 class="text-[#b2ff45] text-[42px] font-medium">Humidity</h1>
+                <p class="text-[#103147] text-5xl font-medium">0%</p>
+                <div class="w-[60%] h-[42%] flex justify-between">
+                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">-</button>
+                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-[15%] flex justify-center items-start">
+            <button class="w-[50%] h-[65%] bg-[#b2ff45] text-black text-2xl font-medium rounded-md transform transition-all duration-300 ease-in-out active:scale-75">Set</button>
+        </div>
+    </dialog>    
     <main class="w-[100%] h-[100%] flex justify-between">
         <section class="w-[70%] h-[100%] bg-black p-[20px]">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-x-3">
+            <div class="flex justify-between items-center mb-7">
+                <div class="flex items-center gap-x-5">
                     <div class="flex items-center gap-x-1">
-                        <h1 class="text-[#b2ff45] text-xl font-medium">Temperature:</h1>
-                        <p class="text-white text-xl font-semibold">19°C</p>
+                        <h1 class="text-[#b2ff45] text-2xl font-medium">Temperature:</h1>
+                        <p class="text-white text-2xl font-semibold">19°C</p>
                     </div>
                     <div class="flex items-center gap-x-1">
-                        <h1 class="text-[#b2ff45] text-xl font-medium">Humidity:</h1>
-                        <p class="text-white text-xl font-semibold">55%</p>
+                        <h1 class="text-[#b2ff45] text-2xl font-medium">Humidity:</h1>
+                        <p class="text-white text-2xl font-semibold">55%</p>
                     </div>
                 </div>
                 <div>
-                    <h1 class="text-[#b2ff45] text-xl font-medium cursor-pointer transform transition-all duration-300 ease-in-out active:translate-x-1 hover:text-white">More Details ></h1>
+                    <a class="text-[#b2ff45] text-xl font-medium cursor-pointer transform transition-all duration-300 ease-in-out hover:text-white">More Details ></a>
                 </div>
             </div>
-            <div class="w-[100%] h-[100%]">
-                <canvas id="myChart" class="w-[100%] h-[740px]"></canvas>
+            <div class="w-full h-full grid place-items-center mb-5">
+                <h1 class="text-[#b2ff45] text-3xl font-semibold"">Monitoring <span class="text-white">Table</span></h1>
             </div>
+            <div class="w-full h-full">
+                <canvas id="myChart" class="w-full h-full"></canvas>
+            </div>                        
         </section>
-        <section class="w-[29%] h-[100%] bg-black px-[1.5%]">
+        <section class="w-[29%] h-[808px] bg-black px-[1.5%]">
             <div class="w-[100%]">
                 <h1 class="text-[#b2ff45] text-2xl font-semibold grid place-items-center py-[3%]">ROOM ALERTS</h1>
             </div>
@@ -63,11 +99,11 @@
                             </div>
                             <div class="grid place-items-center gap-y-2">
                                 <h1 class="text-[23px] font-semibold">Humidity</h1>
-                                <p class="text-[23px] font-medium">35%</p>
+                                <p class="text-[21px] font-medium">35%</p>
                             </div>
                             <div class="grid place-items-center gap-y-2">
                                 <h1 class="text-[23px] font-semibold">Temperature</h1>
-                                <p class="text-[23px] font-medium">10°C</p>
+                                <p class="text-[21px] font-medium">10°C</p>
                             </div>
                         </div>
                     </div>
