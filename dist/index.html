@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script defer src="table.js"></script>
+    <title>Document</title>
+</head>
+<body class="bg-[#181818] font-poppins">
+    <header class="bg-black w-[100%] h-[100%] py-[1.5%] px-[2%] mb-[0.8%] flex justify-between items-center">
+        <div class="flex items-center gap-x-2">
+            <svg width="35" height="35" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.8333 0H4.16667C1.86548 0 0 2.02537 0 4.5238V20.4762C0 22.9746 1.86548 25 4.16667 25H20.8333C23.1345 25 25 22.9746 25 20.4762V4.5238C25 2.02537 23.1345 0 20.8333 0Z" fill="#B2FF45"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8284 6.8141C13.8284 6.48453 13.6852 6.18486 13.4547 5.96687C13.2243 5.74945 12.9061 5.61429 12.5568 5.61429C12.2076 5.61429 11.89 5.74945 11.6589 5.96687C11.4285 6.18486 11.2853 6.48453 11.2853 6.8141V14.3811C10.4045 14.8073 9.80219 15.673 9.80219 16.6715C9.80219 18.0916 11.0219 19.2431 12.5276 19.2431C14.0332 19.2431 15.2536 18.0916 15.2536 16.6715C15.2536 15.6954 14.6775 14.8464 13.8284 14.4104V6.8141ZM13.0829 14.8533C13.9198 15.0805 14.5325 15.8081 14.5325 16.6715C14.5325 17.716 13.6352 18.5626 12.5276 18.5626C11.4206 18.5626 10.5227 17.716 10.5227 16.6715C10.5227 15.8081 11.1353 15.0805 11.9729 14.8533V8.19337C11.9729 7.54285 13.0829 7.56873 13.0829 8.19337V14.8533ZM15.167 7.09536V6.53859H16.705C16.8677 6.53859 17 6.66283 17 6.81698C17 6.97055 16.8677 7.09536 16.705 7.09536H15.167ZM15.167 8.61555V8.05878H16.705C16.8677 8.05878 17 8.1836 17 8.33717C17 8.49074 16.8677 8.61555 16.705 8.61555H15.167ZM15.167 10.1357V9.57897H16.705C16.8677 9.57897 17 9.70378 17 9.85736C17 10.0109 16.8677 10.1357 16.705 10.1357H15.167ZM15.167 11.6559V11.0992H16.705C16.8677 11.0992 17 11.224 17 11.3775C17 11.5311 16.8677 11.6559 16.705 11.6559H15.167ZM15.167 13.1761V12.6193H16.705C16.8677 12.6193 17 12.7442 17 12.8977C17 13.0519 16.8677 13.1761 16.705 13.1761H15.167ZM14.48 13.8985C15.4297 14.495 16.0552 15.5142 16.0552 16.6715C16.0552 18.5097 14.4758 20 12.5276 20C10.5794 20 9 18.5097 9 16.6715C9 15.4906 9.65163 14.453 10.6343 13.8623V6.8141C10.6343 6.31485 10.8507 5.86161 11.1987 5.53261C11.5474 5.20419 12.0277 5 12.5568 5C13.0859 5 13.5669 5.20419 13.915 5.53261C14.2636 5.86161 14.48 6.31485 14.48 6.8141V13.8985Z" fill="black"/>
+            </svg>                
+            <h1 class="text-[#b2ff45] text-2xl font-semibold">Temperature Monitoring System</h1>
+        </div>
+        <a class="flex items-center gap-x-1">
+            <h1 class="text-[#b2ff45] text-[23px] font-medium cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-105 hover:text-white">Configure</h1>
+            <svg class="text-[#b2ff45] dark:text-white cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 hover:text-white" width="35" height="35" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.8" d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4"/>
+            </svg> 
+        </a>
+    </header>
+    <main class="w-[100%] h-[100%] flex justify-between">
+        <section class="w-[70%] h-[100%] bg-black p-[20px]">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-1">
+                        <h1 class="text-[#b2ff45] text-xl font-medium">Temperature:</h1>
+                        <p class="text-white text-xl font-semibold">19°C</p>
+                    </div>
+                    <div class="flex items-center gap-x-1">
+                        <h1 class="text-[#b2ff45] text-xl font-medium">Humidity:</h1>
+                        <p class="text-white text-xl font-semibold">55%</p>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-[#b2ff45] text-xl font-medium cursor-pointer transform transition-all duration-300 ease-in-out active:translate-x-1 hover:text-white">More Details ></h1>
+                </div>
+            </div>
+            <div class="w-[100%] h-[100%]">
+                <canvas id="myChart" class="w-[100%] h-[740px]"></canvas>
+            </div>
+        </section>
+        <section class="w-[29%] h-[100%] bg-black px-[1.5%]">
+            <div class="w-[100%]">
+                <h1 class="text-[#b2ff45] text-2xl font-semibold grid place-items-center py-[3%]">ROOM ALERTS</h1>
+            </div>
+            <div class="w-[100%] h-[746px]">
+                <div class="w-[100%] h-[700px] overflow-auto scrollbar-hidden">
+                    <!-- LOW CARDS ALERT -->
+                    <div class="w-[100%] h-[20%] mb-[2.5%] bg-blue-100 rounded-[7px] flex justify-between">
+                        <div class="w-[4.5%] h-[100%] bg-[#1073f7] rounded-tl-[7px] rounded-bl-[7px]"></div>
+                        <div class="w-[95.5%] h-[100%] flex justify-evenly items-center">
+                            <div>
+                                <h1 class="text-[#1073f7] text-3xl font-semibold">LOW</h1>
+                                <p class="text-[13px] text-black font-medium">March 19, 2024</p>
+                                <p class="text-[13px] text-black font-medium">4:38:04 PM</p>
+                            </div>
+                            <div class="grid place-items-center gap-y-2">
+                                <h1 class="text-[23px] font-semibold">Humidity</h1>
+                                <p class="text-[23px] font-medium">35%</p>
+                            </div>
+                            <div class="grid place-items-center gap-y-2">
+                                <h1 class="text-[23px] font-semibold">Temperature</h1>
+                                <p class="text-[23px] font-medium">10°C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- HIGH CARDS ALERT -->
+                    <div class="w-[100%] h-[20%] mb-[2.5%] bg-red-50 rounded-[7px] flex justify-between">
+                        <div class="w-[4.5%] h-[100%] bg-[#f70f0f] rounded-tl-[7px] rounded-bl-[7px]"></div>
+                        <div class="w-[95.5%] h-[100%] flex justify-evenly items-center">
+                            <div>
+                                <h1 class="text-[#f70f0f] text-3xl font-semibold">HIGH</h1>
+                                <p class="text-[13px] text-black font-medium">March 19, 2024</p>
+                                <p class="text-[13px] text-black font-medium">4:38:04 PM</p>
+                            </div>
+                            <div class="grid place-items-center gap-y-2">
+                                <h1 class="text-[23px] font-semibold">Humidity</h1>
+                                <p class="text-[23px] font-medium">75%</p>
+                            </div>
+                            <div class="grid place-items-center gap-y-2">
+                                <h1 class="text-[23px] font-semibold">Temperature</h1>
+                                <p class="text-[23px] font-medium">30°C</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
