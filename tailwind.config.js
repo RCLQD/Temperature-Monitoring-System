@@ -38,6 +38,20 @@ module.exports = {
         '.text-select-none': {
           'user-select': 'none',
         },
+        '.table-container thead::before, .table-container thead::after': {
+          content: '""',
+          position: 'absolute',
+          left: '0',
+          right: '0',
+          height: '1px',
+          backgroundColor: '#b2ff45',
+        },
+        '.table-container thead::before': {
+          top: '0',
+        },
+        '.table-container thead::after': {
+          bottom: '0',
+        },
       };
       
       addUtilities(newUtilities, ['responsive', 'hover', 'motion-safe']);

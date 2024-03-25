@@ -8,7 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script defer src="table.js"></script>
     <script defer src="openmodal.js"></script>
-    <title>Document</title>
+    <script defer src="addmin.js"></script>
+    <title>Dashboard</title>
 </head>
 <body class="bg-[#181818] font-poppins">
     <header class="bg-black w-[100%] h-[100%] py-[1.5%] px-[2%] mb-[0.8%] flex justify-between items-center">
@@ -39,25 +40,29 @@
         <div class="w-full h-[65%] flex pb-[50px]">
             <div class="w-[50%] h-[full] grid place-items-center">
                 <h1 class="text-[#b2ff45] text-[42px] font-medium">Temperature</h1>
-                <p class="text-[#6e0a1e] text-5xl font-medium">0°C</p>
+                <p id="temperatureDisplay" class="text-[#6e0a1e] text-5xl font-medium">0°C</p>
                 <div class="w-[60%] h-[42%] flex justify-between">
-                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">-</button>
-                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">+</button>
+                    <button id="temperatureDecrement" class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none outline-none bg-white transform transition-all duration-300 ease-in-out active:scale-75" onclick="changeTemperature(-1)" onmousedown="startDecrement('temperature', -1)" onmouseup="clearTimer()">-</button>
+                    <button id="temperatureIncrement" class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none outline-none bg-white transform transition-all duration-300 ease-in-out active:scale-75" onclick="changeTemperature(1)" onmousedown="startIncrement('temperature', 1)" onmouseup="clearTimer()">+</button>
                 </div>
             </div>
             <div class="w-[50%] h-[full] grid place-items-center">
                 <h1 class="text-[#b2ff45] text-[42px] font-medium">Humidity</h1>
-                <p class="text-[#103147] text-5xl font-medium">0%</p>
+                <p id="humidityDisplay" class="text-[#103147] text-5xl font-medium">0%</p>
                 <div class="w-[60%] h-[42%] flex justify-between">
-                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">-</button>
-                    <button class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none bg-white transform transition-all duration-300 ease-in-out active:scale-75">+</button>
+                    <button id="humidityDecrement" class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none outline-none bg-white transform transition-all duration-300 ease-in-out active:scale-75" onclick="changeHumidity(-1)" onmousedown="startDecrement('humidity', -1)" onmouseup="clearTimer()">-</button>
+                    <button id="humidityIncrement" class="w-[37%] text-3xl font-medium rounded-[5px] text-select-none outline-none bg-white transform transition-all duration-300 ease-in-out active:scale-75" onclick="changeHumidity(1)" onmousedown="startIncrement('humidity', 1)" onmouseup="clearTimer()">+</button>
                 </div>
             </div>
         </div>
-        <div class="w-full h-[15%] flex justify-center items-start">
-            <button class="w-[50%] h-[65%] bg-[#b2ff45] text-black text-2xl font-medium rounded-md transform transition-all duration-300 ease-in-out active:scale-75">Set</button>
+        <div class="w-[100%] h-[15%]">
+            <form action="" method="post" class="w-[100%] h-[100%] flex justify-evenly items-start">
+                <button class="w-[40%] h-[65%] bg-[#ff0033] text-black text-2xl font-semibold rounded-md transform transition-all duration-300 ease-in-out active:scale-75">Set High</button>
+                <button class="w-[40%] h-[65%] bg-[#0099ff] text-black text-2xl font-semibold rounded-md transform transition-all duration-300 ease-in-out active:scale-75">Set Low</button>
+            </form>
         </div>
-    </dialog>    
+    </dialog>
+
     <main class="w-[100%] h-[88vh] flex justify-between">
         <section class="w-[70%] h-[100%] bg-black p-[20px]">
             <div class="flex justify-between items-center mb-7">
@@ -72,7 +77,7 @@
                     </div>
                 </div>
                 <div>
-                    <a class="text-[#b2ff45] text-xl font-medium cursor-pointer transform transition-all duration-300 ease-in-out hover:text-white">More Details ></a>
+                    <a href="tabledata.html" class="text-[#b2ff45] text-xl font-medium cursor-pointer transform transition-all duration-300 ease-in-out hover:text-white">More Details ></a>
                 </div>
             </div>
             <div class="w-full grid place-items-center mb-5">
